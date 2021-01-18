@@ -1,0 +1,24 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: grey;
+}
+
+h1 {
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    color: blue;
+    margin: 40px 0px;
+}
+
+p {
+    padding: 15px 5px;
+
+}
+
+h3 {
+    padding-top: 25px;
+    color: rgb(38, 35, 216)
+}
