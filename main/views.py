@@ -23,3 +23,23 @@ def add_books(request):
                  price=price, author=author, year=year)
     book.save()
     return redirect(books)
+
+
+def delete(request, id):
+    book = Books.objects.get(id=id)
+    book.delete()
+    return redirect(books)
+
+
+def mark_book(request, id):
+    book = Books.objects.get(id=id)
+    book.is_favorite = True
+    book.save()
+    return redirect(books)
+
+
+def unmark_book(request, id):
+    book = Books.objects.get(id=id)
+    book.is_favorite = False
+    book.save()
+    return redirect(books)

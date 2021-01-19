@@ -6,6 +6,11 @@
 
 }
 
+/* body { */
+/* background-color: honeydew; */
+
+/* } */
+
 h1 {
     text-align: center;
     font-size: 40px;
@@ -69,3 +74,16 @@ input {
     margin-bottom: 20px;
     justify-content: center;
 }
+
+.action_buttons {
+    display: flex;
+}
+
+.card.marked {
+    background-color: #FFE082;
+    border: 2px solid #fad66a;
+}
+
+/* .card.marked img { */
+/* opacity: 0.3; */
+/* } */

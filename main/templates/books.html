@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static './styles.css' %}" />
+    <!-- <link rel="stylesheet" href="{% static './checkbox.css' %}" /> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>BOOKS</title>
@@ -55,11 +56,22 @@
     <div class="container_box">
         <div class="row">
             {% for book in books_list%}
-            <div class="card" style="width: 18rem;">
+            <div class="card 
+            {% if book.is_favorite %}
+            marked
+            {% endif %}" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">{{book.title}}</h5>
                     <h6 class="card-subtitle mb-2 text-muted">{{book.subtitle}}</h6>
                     <a href="#" class="card-link">{{book.author}}</a>
+                    <div class="action_buttons">
+                        {% if todo.is_favorite %}
+                        <a href="{% url 'unmark_book' book.id %}"><img src="{%static './icons/mark32.png'%}" /></a>
+                        {% else %}
+                        <a href="{% url 'mark_book' book.id %}"><img src="{%static './icons/unmark32.png'%}" /></a>
+                        {%endif %}
+                        <a href="{% url 'delete' book.id %}"><img src="{%static './icons/basket32.png'%}" /></a>
+                    </div>
                 </div>
             </div>
             <hr>

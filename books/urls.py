@@ -17,13 +17,16 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from main.views import books, add_books
+from main.views import books, add_books, delete, mark_book, unmark_book
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', books, name='books_index'),
     path('add', add_books, name='add_book'),
+    path('delete/<id>', delete, name='delete'),
+    path('mark/<id>', mark_book, name='mark_book'),
+    path('unmark/<id>', unmark_book, name='unmark_book'),
 
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
