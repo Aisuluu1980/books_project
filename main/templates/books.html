@@ -6,15 +6,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static './styles.css' %}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>BOOKS</title>
 </head>
 
 <body>
+    <form action="{% url 'add_book' %}" method="POST">
+        {% csrf_token %}
+        <div class="mt-3 pt-5">
+            <label for="title" class="title" name="title">Book`s title</label>
+            <input type="text" class="title_book" id="title_book" name="title">
+        </div>
+
+        <div class="mt-3">
+            <label for="subtitle" class="subtitle_book" name="subtitle_book">Book`s subtitle</label>
+            <input type="text" class="subtitle_book" id="subtitle_book" name="subtitle">
+        </div>
+
+        <div class="mt-3">
+            <label for="description" class="description" name="description">Description</label>
+            <input type="text" class="description" id="description_book" name="description">
+        </div>
+
+        <div class="mt-3">
+            <label for="price" class="price" name="price">Price</label>
+            <input type="text" class="price" id="price_book" name="price">
+        </div>
+
+        <div class="mt-3">
+            <label for="genre" class="genre" name="genre">Genre</label>
+            <input type="text" class="genre" id="genre_book" name="genre">
+        </div>
+        <div class=" mt-3">
+            <label for="author" class="author" name="author">Author</label>
+            <input type="text" class="author" id="author_book" name="author">
+        </div>
+        <div class="mt-3">
+            <label for="year" class="year" name="year">Year of issue</label>
+            <input type="text" class="year" id="year_book" name="year">
+        </div>
+
+        <button class="add_button">Add book</button>
+    </form>
     <h1>Books</h1>
     {% for book in books_list%}
-    <h3>{{book.title}}</h3>
-    <p>Author: <b>{{book.author}}</b></p>
-    <p>Added on site: {{book.date}}</p>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{book.title}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{book.subtitle}}</h6>
+            <p class="card-text">{{book.description}}</p>
+            <p class="card-text">{{book.date}}</p>
+            <a href="#" class="card-link">{{book.author}}</a>
+        </div>
+    </div>
+    <!-- <h3>{{book.title}}</h3> -->
+    <!-- <p>Author: <b>{{book.author}}</b></p> -->
+    <!-- <p>Added on site: {{book.date}}</p> -->
     <hr>
     {% endfor%}
 
