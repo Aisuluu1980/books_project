@@ -23,7 +23,7 @@ from main.views import books, add_books
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', books, name='books_index'),
-    path('/add', add_books, name='add_book'),
+    path('add', add_books, name='add_book'),
 
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \

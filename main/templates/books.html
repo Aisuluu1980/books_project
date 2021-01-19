@@ -50,21 +50,23 @@
         <button class="add_button">Add book</button>
     </form>
     <h1>Books</h1>
-    {% for book in books_list%}
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title">{{book.title}}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">{{book.subtitle}}</h6>
-            <p class="card-text">{{book.description}}</p>
-            <p class="card-text">{{book.date}}</p>
-            <a href="#" class="card-link">{{book.author}}</a>
+
+
+    <div class="container_box">
+        <div class="row">
+            {% for book in books_list%}
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{book.title}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{book.subtitle}}</h6>
+                    <a href="#" class="card-link">{{book.author}}</a>
+                </div>
+            </div>
+            <hr>
+            {% endfor%}
         </div>
     </div>
-    <!-- <h3>{{book.title}}</h3> -->
-    <!-- <p>Author: <b>{{book.author}}</b></p> -->
-    <!-- <p>Added on site: {{book.date}}</p> -->
-    <hr>
-    {% endfor%}
+
 
 
 </body>
