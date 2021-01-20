@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from main.views import books, add_books, delete, mark_book, unmark_book
+from main.views import books, add_books, delete, mark_book, unmark_book, detail_book
 
 
 urlpatterns = [
@@ -27,6 +27,7 @@ urlpatterns = [
     path('delete/<id>', delete, name='delete'),
     path('mark/<id>', mark_book, name='mark_book'),
     path('unmark/<id>', unmark_book, name='unmark_book'),
+    path('detail/<id>', detail_book, name='detail_book'),
 
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \

@@ -61,16 +61,21 @@
             marked
             {% endif %}" style="width: 18rem;">
                 <div class="card-body">
-                    <h5 class="card-title">{{book.title}}</h5>
+                    <a href="{% url 'detail_book' book.id %}">
+                        <h5 class="card-title">{{book.title}}</h5>
+                    </a>
                     <h6 class="card-subtitle mb-2 text-muted">{{book.subtitle}}</h6>
                     <a href="#" class="card-link">{{book.author}}</a>
-                    <div class="action_buttons">
-                        {% if todo.is_favorite %}
-                        <a href="{% url 'unmark_book' book.id %}"><img src="{%static './icons/mark32.png'%}" /></a>
-                        {% else %}
-                        <a href="{% url 'mark_book' book.id %}"><img src="{%static './icons/unmark32.png'%}" /></a>
-                        {%endif %}
-                        <a href="{% url 'delete' book.id %}"><img src="{%static './icons/basket32.png'%}" /></a>
+                    <div class="card-footer">
+                        <p>{{book.date|date:'d.m.Y'}}</p>
+                        <div class="action_buttons">
+                            {% if book.is_favorite %}
+                            <a href="{% url 'unmark_book' book.id %}"><img src="{%static './icons/mark32.png'%}" /></a>
+                            {% else %}
+                            <a href="{% url 'mark_book' book.id %}"><img src="{%static './icons/unmark32.png'%}" /></a>
+                            {%endif %}
+                            <a href="{% url 'delete' book.id %}"><img src="{%static './icons/basket32.png'%}" /></a>
+                        </div>
                     </div>
                 </div>
             </div>

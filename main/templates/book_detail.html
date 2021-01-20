@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static './styles.css' %}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="card_detail text-center">
+        <div class="card-header">{{book.title}}
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">{{book.subtitle}}</h5>
+            <p class="card-text">{{book.description}}</p>
+            <p class="card-text">Year: {{book.year}}</p>
+            <p> Genre :{{book.genre}}</p>
+            <a href="#" class="btn btn-primary">{{book.author}}</a>
+        </div>
+        <div class="card-footer text-muted">
+            <p>Price: {{book.price}}</p>
+            <p>Added date: {{book.date}}</p>
+        </div>
+    </div>
+</body>
+
+</html>
