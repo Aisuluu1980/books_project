@@ -48,3 +48,13 @@ def unmark_book(request, id):
 def detail_book(request, id):
     book = Books.objects.get(id=id)
     return render(request, 'book_detail.html', context={'book': book})
+
+
+class DataFlair:
+    topic = 'django'
+
+    def topic():
+        return topic
+
+
+obj = DataFlair()
